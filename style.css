@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lora', serif;
+    color: rgba(255, 255, 255, 1);
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('images/fondo.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#btn{
+    width: 50vw;
+    height: 20vh;
+    background-image: url('images/boton.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.container{
+    min-width: 50vw;
+    margin: 3em;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: .5em;
+}
+
+#texto{
+    font-size: 1.3em;
+    font-weight: 600;
+    text-align: center;
+}
+
+#btn_box{
+    margin: 1em;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+}
+
+.btn_opcion{
+    padding: .5em;
+    font-size: 1.1em;
+    border: .2em solid #101010;
+    border-radius: .2em;
+    background-color: transparent;
+}
+
+#barra_final{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+#vida,
+#inventario{
+    margin: .5em;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 1.2em;
+}
+
+.corazon_box,
+.item_box{
+    min-width: 2.5em;
+    margin: .5em;
+    border: .2em solid #303030;
+    border-radius: .2em;
+}
+
+.corazon,
+.item{
+    width: 2.5em;
+    height: 2.5em;
+    padding: .3em;
+    border: none;
+    outline: none;
+}
+
+
+
+.hide{
+    display: none;
+}
