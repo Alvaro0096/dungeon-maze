@@ -1,6 +1,7 @@
-const btn = document.getElementById('btn');
+const btnStart = document.getElementById('btn_start');
+const container = document.getElementById('box_container');
 
-btn.addEventListener('click', () => {
-    document.body.style.backgroundImage = 'url(images/dungeon_intro.jpg)';
-    btn.classList.add('hide');
+btnStart.addEventListener('click', () => {
+    btnStart.classList.add('hide');
+    container.classList.remove('hide');
 })
