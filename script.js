@@ -38,9 +38,6 @@ function refreshIcons(){
 //STATE
 let state = {};
 
-//Items
-let items = {};
-
 //COMENZAR
 function start(){
     btnStart.classList.add('hide');
@@ -90,28 +87,45 @@ function selectOption(option){
         return begin();
     }
     state = Object.assign(state, option.setState);
-    
-    
     showTextNode(nextTextNodeId);
-    if(option.setState.potion == true){
+    itemUsed(option);
+}
+
+function itemUsed(option){
+    const itemSelected = option.setState;
+    if (itemSelected == undefined) return console.log('volver');
+    if (itemSelected.potion == true) {
         console.log('pocion')
         potion.src = 'icons/potion.png';
     }
-    if(option.setState.sword == true && option.setState.potion == false){
-        console.log('espada')
-        potion.src = 'icons/question_mark.png';
+    if (itemSelected.sword == true) {
+        console.log('sword')
         sword.src = 'icons/sword.png';
+        potion.src = 'icons/tick.png';
     }
-    if(option.setState.shield == true){
-        console.log('escudo')
+    if (itemSelected.shield == true) {
+        console.log('shield')
         shield.src = 'icons/shield.png';
-        potion.src = 'icons/question_mark.png';
+        potion.src = 'icons/tick.png';
     }
-    if(option.setState.hit == true){
-        console.log('hit')
-        heart1.src = 'icons/empty_heart.png';
-        heart2.src = 'icons/empty_heart.png';
+    if (itemSelected.hit == true) {
         heart3.src = 'icons/empty_heart.png';
+    } 
+    if (itemSelected.doubleHit == true){
+        heart3.src = 'icons/empty_heart.png';
+        heart2.src = 'icons/empty_heart.png';
+    }
+    if (itemSelected.death == true) {
+        console.log('shield')
+        heart1.src = 'icons/empty_heart.png'
+        heart2.src = 'icons/empty_heart.png'
+        heart3.src = 'icons/empty_heart.png'
+    }
+    if(itemSelected.healed == true){
+        console.log('curado')
+        heart1.src = 'icons/heart.png'
+        heart2.src = 'icons/heart.png'
+        heart3.src = 'icons/heart.png'
     }
 }
 
@@ -132,11 +146,12 @@ const textNodes = [
             },
             {
                 text: 'lo dejas',
+                setState: {hit: true},
                 nextText: 10
             },
             {
                 text: 'lo bebes',
-                setState: {hit: true},
+                setState: {death: true},
                 nextText: 11
             }
         ]
@@ -189,21 +204,22 @@ const textNodes = [
     },
     {
         id: 10,
-        text: 'debiste tomarlo',
+        text: 'te golpeas al intentar levantarte en la oscuridad',
         options: [
             {
-                text: 'volver',
-                nextText: -1
+                text: 'continuas herido',
+                setState: (currentState) => currentState.hit,
+                nextText: 13
             }
         ]
     },
     {
         id: 11,
-        text: 'no debiste beberlo, te ha provocado un gran dolor',
+        text: 'no debiste beberlo, te esta matando lentamente',
         options: [
             {
                 text: 'resignarte',
-                setState: (currentState) => currentState.hit,
+                setState: (currentState) => currentState.death,
                 nextText: 12
             }
         ]
@@ -214,6 +230,64 @@ const textNodes = [
         options: [
             {
                 text: 'volver',
+                nextText: -1
+            }
+        ]
+    },
+    {
+        id: 13,
+        text: 'te encuentras herido, podrias seguir pero...',
+        options: [
+            {
+                text: 'sigues...',
+                setState: {doubleHit: true},
+                nextText: 14
+            }
+        ]
+    },
+    {
+        id: 14,
+        text: 'te encuentras muy herido, intentas seguir pero...',
+        options: [
+            {
+                text: 'si volviera a tomar esa pocion',
+                requiredState: (currentState) => currentState.doubleHit,
+                nextText: 16
+            },
+            {
+                text: 'no puedo mas',
+                nextText: 15
+            }
+        ]
+    },
+    {
+        id: 15,
+        text: 'hice lo que pude',
+        options: [
+            {
+                text: 'volver',
+                nextText: -1
+            }
+        ]
+    },
+    {
+        id: 16,
+        text: 'esto deberia ayudar',
+        options: [
+            {
+                text: 'esta vez funcionara',
+                setState: {healed: true},
+                nextText: 17
+            }
+        ]
+    },
+    {
+        id: 17,
+        text: 'me he curado. Debo volver ahora que puedo',
+        options: [
+            {
+                text: 'volver',
+                requiredState: (currentState) => currentState.healed,
                 nextText: -1
             }
         ]
