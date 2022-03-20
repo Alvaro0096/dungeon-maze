@@ -42,7 +42,7 @@ let state = {};
 function start(){
     btnStart.classList.add('hide');
     container.classList.remove('hide');
-    document.body.style.height = '100vh';
+    document.body.style.height = 'auto';
     refreshIcons();
     state = {};
     showTextNode(1);
