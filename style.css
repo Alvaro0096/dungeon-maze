@@ -15,7 +15,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('images/fondo.jpg') no-repeat center center fixed; 
+    background: url('images/fondo.jpg') no-repeat center center; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
