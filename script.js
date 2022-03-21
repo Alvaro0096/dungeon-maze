@@ -136,157 +136,50 @@ btnStart.addEventListener('click', () => {
 const textNodes = [
     {
         id: 1,
-        text: 'te despiertas en un lugar extrano y ves un frasco con una sustancia de colores',
+        text: `Las luces danzan entre la oscuridad,
+            haciendo un apogeo a estas tinieblas que
+            quieren apoderarse de todo.
+        
+            Frente tuyo está el rey, con la mirada seria, rozando lo 
+            solemne demostrando el nivel de la amenaza 
+            que tienes por delante.`,
         options: [
             {
-                text: 'lo tomas',
-                setState: {potion: true},
+                text: 'Continuar.',
                 nextText: 2
-            },
-            {
-                text: 'lo dejas',
-                setState: {hit: true},
-                nextText: 10
-            },
-            {
-                text: 'lo bebes',
-                setState: {death: true},
-                nextText: 11
             }
         ]
     },
     {
         id: 2,
-        text: 'tomas la pocion y te diriges al exterior. un buhonero salvaje aparece. "HELLO STRANGEEERRRR"',
+        text: `A tu derecha está el príncipe, arrogante como siempre, 
+        mirándote como si no fueses más que una mera herramienta.
+        
+        A tu izquierda está el bufón intentando hacer un truco de
+        magia sacando pañuelos de su boca hasta que en
+        un momento parece ahogarse con uno de ellos 
+        “ese truco me tenía agarrado de la garganta”`,
         options: [
             {
-                text: 'usar la pocion para una comprar espada',
-                requiredState: (currentState) => currentState.potion,
-                setState: {potion: false, sword: true},
+                text: 'Opción rey: Consultas al Rey por cual es tu trabajo.',
                 nextText: 3
             },
             {
-                text: 'usar la pocion para comprar un escudo',
-                requiredState: (currentState) => currentState.potion,
-                setState: {potion: false, shield: true},
+                text: 'Opción príncipe: Consultas al príncipe si es él quien te contrato.',
                 nextText: 3
             },
             {
-                text: 'lo ignoras',
+                text: 'Opción bufón:*ries* y preguntas al bufón por qué hacer.',
                 nextText: 3
             }
         ]
     },
     {
         id: 3,
-        text: 'continuas caminando y ves un castillo a lo lejos',
+        text: 'Continuara...',
         options: [
             {
-                text: 'entrar',
-                nextText: 4
-            },
-            {
-                text: 'ver los alrededores',
-                nextText: 4,
-            }
-        ]
-    },
-    {
-        id: 4,
-        text: 'continuara',
-        options: [
-            {
-                text: 'volver',
-                nextText: -1
-            }
-        ]
-    },
-    {
-        id: 10,
-        text: 'te golpeas al intentar levantarte en la oscuridad',
-        options: [
-            {
-                text: 'continuas herido',
-                setState: (currentState) => currentState.hit,
-                nextText: 13
-            }
-        ]
-    },
-    {
-        id: 11,
-        text: 'no debiste beberlo, te esta matando lentamente',
-        options: [
-            {
-                text: 'resignarte',
-                setState: (currentState) => currentState.death,
-                nextText: 12
-            }
-        ]
-    },
-    {
-        id: 12,
-        text: 'mueres solo, llorando en un charco de tu propio vomito',
-        options: [
-            {
-                text: 'volver',
-                nextText: -1
-            }
-        ]
-    },
-    {
-        id: 13,
-        text: 'te encuentras herido, podrias seguir pero...',
-        options: [
-            {
-                text: 'sigues...',
-                setState: {doubleHit: true},
-                nextText: 14
-            }
-        ]
-    },
-    {
-        id: 14,
-        text: 'te encuentras muy herido, intentas seguir pero...',
-        options: [
-            {
-                text: 'si volviera a tomar esa pocion',
-                requiredState: (currentState) => currentState.doubleHit,
-                nextText: 16
-            },
-            {
-                text: 'no puedo mas',
-                nextText: 15
-            }
-        ]
-    },
-    {
-        id: 15,
-        text: 'hice lo que pude',
-        options: [
-            {
-                text: 'volver',
-                nextText: -1
-            }
-        ]
-    },
-    {
-        id: 16,
-        text: 'esto deberia ayudar',
-        options: [
-            {
-                text: 'esta vez funcionara',
-                setState: {healed: true},
-                nextText: 17
-            }
-        ]
-    },
-    {
-        id: 17,
-        text: 'me he curado. Debo volver ahora que puedo',
-        options: [
-            {
-                text: 'volver',
-                requiredState: (currentState) => currentState.healed,
+                text: 'Volver',
                 nextText: -1
             }
         ]
