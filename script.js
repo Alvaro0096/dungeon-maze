@@ -18,6 +18,7 @@ const opcion4 = document.getElementById('opcion_4');
 
 //Contenedores
 const btnStart = document.getElementById('btn_start');
+const startContainer = document.getElementById('btn_start_container');
 const container = document.getElementById('box_container');
 const textDisplay = document.getElementById('texto');
 const btnOptions = document.getElementById('btn_box');
@@ -40,9 +41,8 @@ let state = {};
 
 //COMENZAR
 function start(){
-    btnStart.classList.add('hide');
+    startContainer.classList.add('hide');
     container.classList.remove('hide');
-    document.body.style.height = 'auto';
     refreshIcons();
     state = {};
     showTextNode(1);
@@ -50,9 +50,8 @@ function start(){
 
 //RESTART
 function begin(){
-    btnStart.classList.remove('hide');
+    startContainer.classList.remove('hide');
     container.classList.add('hide');
-    document.body.style.height = '100vh';
     state = {};
     showTextNode(1);
 }

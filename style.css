@@ -12,7 +12,6 @@
 
 body{
     height: 100vh;
-    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,11 +23,11 @@ body{
 }
 
 #btn_start{
-    width: 60vw;
-    height: 25vh;
+    min-width: 80vw;
+    min-height: 30vh;
     background-image: url('images/boton.png');
-    background-size: 100% 100%;
     background-repeat: no-repeat;
+    background-size: 100% 100%;
     background-color: transparent;
     border: none;
     outline: none;
@@ -36,34 +35,35 @@ body{
 }
 
 .container{
-    min-width: 50vw;
-    margin: 3em;
-    padding: 1em;
+    max-width: 80vw;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 1em;
+    padding: 1em;
     background-color: rgba(0, 0, 0, .3);
     border-radius: .5em;
 }
 
 #texto{
-    font-size: 1.3em;
+    font-size: 1.4em;
     font-weight: 600;
+    padding: .5em;
     text-align: center;
 }
 
 #btn_box{
-    margin: 1em;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .btn_opcion{
-    padding: .5em;
     font-size: 1.1em;
+    margin: .5em;
+    padding: .5em;
     border: .2em solid #101010;
     border-radius: .2em;
     background-color: transparent;
@@ -78,25 +78,26 @@ body{
 #barra_final{
     width: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 1em;
 }
 
 #vida,
 #inventario{
-    margin: .5em;    
+    width: 80%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    font-size: 1.2em;
 }
 
 .corazon_box,
 .item_box{
-    min-width: 2.5em;
+    padding: .5em;
     margin: .5em;
+    flex-wrap: wrap;
     border: .2em solid #303030;
     border-radius: .2em;
 }
@@ -105,7 +106,6 @@ body{
 .item{
     width: 2.5em;
     height: 2.5em;
-    padding: .3em;
     border: none;
     outline: none;
 }
@@ -114,20 +114,17 @@ body{
     display: none;
 }
 
-@media all and (max-width: 620px){
+@media (max-width: 768px){
 
-#btn_start{
-    width: 90vw;
-    height: 20vh;
+body{
+    height: auto;
+    margin: 1em;
 }
 
-#barra_final{
-    align-items: flex-start;
-}    
-
-#vida,
-#inventario{
-    flex-direction: column;
+#btn_start_container{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 }
